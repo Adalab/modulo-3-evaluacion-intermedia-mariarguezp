@@ -1,21 +1,11 @@
-import { useState } from 'react';
-
-import "../styles/App.scss";
-
-import adalabersList from "../local-api/api.json";
-
-//Importamos el fetch
-// import callToApi from '../services/api';
-
-//Importamos localStorage.js
-// import ls from '../services/localStorage';
+import { useEffect, useState } from 'react';
+import callToApi from '../services/api';
 
 function App() {
   const [name, setName] = useState('');
   const [counselor, setCounselor] = useState('');
   const [speciality, setSpeciality] = useState('');
-
-  const [data, setData] = useState(adalabersList);
+  const [data, setData] = useState([]);
 
 
   const renderList = data.map((adalaber , index) => {
@@ -57,18 +47,11 @@ function App() {
     setSpeciality('');
   };
 
-
-
-
-  //Usar useEffect
-  // useEffect(() => {
-  //   // Dentro de useEffect llamamos al API
-  //   callToApi().then(response => {
-  //     // Cuando el API responde guardamos los datos en el estado para que se re-renderice el componente
-  //     setStarWarsData(response);
-  //   });
-  //   // Aquí ponemos un array vacío porque queremos que se llame al API solo la primera vez
-  // }, []);
+  useEffect(() => {
+    callToApi().then(response => {
+      setData(response);
+    });
+  }, []);
 
   return (
     <div>
@@ -97,6 +80,6 @@ function App() {
 </form>
     </div>
   );
-}// Para usar useEffect y useState
+}
 
 export default App;
