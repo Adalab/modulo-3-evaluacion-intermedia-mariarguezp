@@ -1,4 +1,4 @@
-**http://beta.adalab.es/modulo-3-evaluacion-intermedia-mariarguezp/**
+**https://mariarguezp.github.io/adalab-modulo-3-evaluacion-intermedia-mariarguezp/**
 
 # Módulo 3. Evaluación intermedia
 
